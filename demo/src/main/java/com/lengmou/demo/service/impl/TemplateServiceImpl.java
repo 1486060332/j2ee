@@ -4,11 +4,13 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.lengmou.demo.service.ITemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Author 冷眸
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class TemplateServiceImpl<T, M extends BaseMapper<T>> implements ITemplateService<T, M> {
     @Autowired(required = false)
     private M mapper;

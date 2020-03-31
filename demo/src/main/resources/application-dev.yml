@@ -10,7 +10,7 @@ spring:
     url: jdbc:mysql://rm-8vbxeni7abaw8hoge4o.mysql.zhangbei.rds.aliyuncs.com:3306/demo?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
     username: demo
     password: xiaoyuxin1996
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
       initial-size: 1
       min-idle: 1
@@ -18,3 +18,8 @@ spring:
       max-wait: 10000
       timeBetweenEvictionRunsMillis: 300000
       validationQuery: select 1
+  redis:
+    host: 39.99.130.130
+    port: 6379
+    database: 0
+    password: xiaoyuxin1996
