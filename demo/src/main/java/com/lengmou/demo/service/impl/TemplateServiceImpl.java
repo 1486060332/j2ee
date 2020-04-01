@@ -2,6 +2,7 @@ package com.lengmou.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.lengmou.demo.service.ITemplateService;
+import com.lengmou.demo.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class TemplateServiceImpl<T, M extends BaseMapper<T>> implements ITemplateService<T, M> {
     @Autowired(required = false)
     private M mapper;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     @Override
     public int insert(T t) {

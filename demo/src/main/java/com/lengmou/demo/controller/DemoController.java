@@ -20,8 +20,4 @@ public class DemoController {
         return demoService.insert(demo);
     }
 
-    @GetMapping("/redis")
-    String testRedis(){
-        return demoService.insertRedis(null);
-    }
 }

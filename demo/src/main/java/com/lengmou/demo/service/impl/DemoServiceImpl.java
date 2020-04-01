@@ -5,10 +5,9 @@ import com.lengmou.demo.mapper.DemoMapper;
 import com.lengmou.demo.service.IDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import java.util.LinkedHashMap;
 
 /**
  * 测试
@@ -16,11 +15,5 @@ import javax.annotation.Resource;
  */
 @Service
 public class DemoServiceImpl extends TemplateServiceImpl<Demo, DemoMapper> implements IDemoService {
-    @Autowired
-    private RedisTemplate redisTemplate;
 
-    @Override
-    public String insertRedis(Demo demo) {
-        return "demo";
-    }
 }

@@ -8,5 +8,4 @@ import com.lengmou.demo.mapper.DemoMapper;
  * @Author 冷眸
  */
 public interface IDemoService extends ITemplateService<Demo, DemoMapper> {
-    String insertRedis(Demo demo);
 }
