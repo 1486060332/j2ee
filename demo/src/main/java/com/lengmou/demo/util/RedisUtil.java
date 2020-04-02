@@ -79,8 +79,7 @@ public final class RedisUtil {
      * @param value 值
      */
     public void set(final String key, final Object value) {
-        //默认的过期时间为30天
-        redisTemplate.opsForValue().set(key, value, 30, TimeUnit.DAYS);
+        redisTemplate.opsForValue().set(key, value);
     }
 
     // 存储普通对象操作
