@@ -1,4 +1,4 @@
-package com.lengmou.demo.entity;
+package com.lengmou.demo.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

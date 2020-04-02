@@ -1,7 +1,7 @@
 package com.lengmou.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lengmou.demo.entity.RedisEntity;
+import com.lengmou.demo.model.RedisEntity;
 import com.lengmou.demo.service.ITemplateService;
 import com.lengmou.demo.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
