@@ -13,9 +13,9 @@ import java.util.Date;
  */
 @Data
 @TableName("demo")
-public class Demo implements Serializable {
-    @TableId(type = IdType.AUTO)
-    private Integer id;
+public class Demo extends RedisEntity implements Serializable {
+
+    public static final String TABLE_NAME = "demo:";
 
     private String name;
 
@@ -24,4 +24,8 @@ public class Demo implements Serializable {
     private Date created_at;
 
     private Date updated_at;
+
+    public Demo(){
+        super.setTableName(TABLE_NAME);
+    }
 }

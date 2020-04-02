@@ -1,6 +1,7 @@
 package com.lengmou.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.lengmou.demo.entity.RedisEntity;
 import com.lengmou.demo.service.ITemplateService;
 import com.lengmou.demo.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class TemplateServiceImpl<T, M extends BaseMapper<T>> implements ITemplateService<T, M> {
+public class TemplateServiceImpl<T extends RedisEntity, M extends BaseMapper<T>> implements ITemplateService<T, M> {
     @Autowired(required = false)
     private M mapper;
 
@@ -26,16 +27,27 @@ public class TemplateServiceImpl<T, M extends BaseMapper<T>> implements ITemplat
 
     @Override
     public int updateById(T t) {
+        System.out.println(t.toKey());
+        redisUtil.del(t.toKey());
         return mapper.updateById(t);
     }
 
     @Override
-    public T selectById(Integer id) {
-        return mapper.selectById(id);
+    public T selectById(T t) {
+        T o = (T) redisUtil.get(t.toKey());
+        if(o != null){
+            return o;
+        }
+        T t1 = mapper.selectById(t.getId());
+        if(t1 != null){
+            redisUtil.set(t1.toKey(), t1);
+        }
+        return t1;
     }
 
     @Override
-    public int deleteById(Integer id) {
-        return mapper.deleteById(id);
+    public int deleteById(T t) {
+        redisUtil.del(t.toKey());
+        return mapper.deleteById(t.getId());
     }
 }

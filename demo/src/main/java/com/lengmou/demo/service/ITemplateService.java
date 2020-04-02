@@ -22,15 +22,15 @@ public interface ITemplateService<T, M> {
 
     /**
      * 通过id查询数据
-     * @param id
+     * @param t
      * @return
      */
-    T selectById(Integer id);
+    T selectById(T t);
 
     /**
      * 删除数据
-     * @param id
+     * @param t
      * @return
      */
-    int deleteById(Integer id);
+    int deleteById(T t);
 }
