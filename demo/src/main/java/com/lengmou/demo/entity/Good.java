@@ -8,20 +8,22 @@ import lombok.Data;
 import java.util.Date;
 
 /**
+ * 商品信息
  * @Author 冷眸
  */
 @Data
-@TableName("demo")
-public class Demo {
-
-    public static final String TABLE_NAME = "demo:";
+@TableName("good")
+public class Good{
+    private static final String TABLE_NAME = "good:";
 
     @TableId(type = IdType.AUTO)
     private Integer id;
 
     private String name;
 
-    private Integer deleted;
+    private Integer price;
+
+    private Integer stock;
 
     private Date createdAt;
 
