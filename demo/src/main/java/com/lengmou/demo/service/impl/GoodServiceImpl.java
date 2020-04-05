@@ -135,9 +135,9 @@ public class GoodServiceImpl implements IGoodService {
         } catch (Exception e) {
             System.err.println(555);
             e.printStackTrace();
+            return Result.error();
         } finally {
             lock.unlock();
-            return Result.error("您所购的商品库存不足，非常感谢您的支持！");
         }
     }
 
