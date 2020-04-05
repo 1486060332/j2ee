@@ -1,5 +1,5 @@
 mybatis-plus:
-  mapper-locations: classpath:com/lengmou/demo/mapper/xml/*Mapper.xml
+  mapper-locations: classpath:xml/*.xml
   global-config:
     db-config:
       id-type: auto

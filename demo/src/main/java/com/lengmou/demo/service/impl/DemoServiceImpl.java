@@ -4,6 +4,8 @@ import com.lengmou.demo.entity.Demo;
 import com.lengmou.demo.mapper.DemoMapper;
 import com.lengmou.demo.service.IDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,6 +20,13 @@ public class DemoServiceImpl implements IDemoService {
     @Override
     public int insert(Demo demo) {
         return demoMapper.insert(demo);
+    }
+
+    @Override
+    @Async("asyncExecutor")
+    public void insertAsync(Demo demo) {
+        Thread.yield();
+        demoMapper.insert(demo);
     }
 
     @Override

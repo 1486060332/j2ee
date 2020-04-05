@@ -25,11 +25,44 @@ public class GoodController {
         goodService.insert(good);
         return Result.success();
     }
-    @PostMapping("/reduceStock")
-    public Result reduceStock(@RequestBody GoodVo goodVo){
-        if(goodService.reduceStock(goodVo) == 1){
-            return Result.success();
-        }
-        return Result.error("库存不足");
+
+    /**
+     * 创建订单“乐观锁”方式
+     * @param goodVo
+     * @return
+     */
+    @PostMapping("/optimisticLocking")
+    public Result optimisticLocking(@RequestBody GoodVo goodVo){
+        return goodService.optimisticLocking(goodVo);
+    }
+
+    /**
+     * 创建订单“线程锁”方式
+     * @param goodVo
+     * @return
+     */
+    @PostMapping("/threadLocking")
+    public Result threadLocking(@RequestBody GoodVo goodVo){
+        return goodService.threadLocking(goodVo);
+    }
+
+    /**
+     * 创建订单“悲观锁”方式
+     * @param goodVo
+     * @return
+     */
+    @PostMapping("/pessimisticLocking")
+    public Result pessimisticLocking(@RequestBody GoodVo goodVo){
+        return goodService.pessimisticLocking(goodVo);
+    }
+
+    /**
+     * 创建订单分布式锁
+     * @param goodVo
+     * @return
+     */
+    @PostMapping("redissonLocking")
+    public Result redissonLocking(@RequestBody GoodVo goodVo){
+        return goodService.redissonLocking(goodVo);
     }
 }

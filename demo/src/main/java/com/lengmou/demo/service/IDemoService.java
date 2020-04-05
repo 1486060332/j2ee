@@ -14,6 +14,12 @@ public interface IDemoService {
      * @return
      */
     int insert(Demo demo);
+    /**
+     * 异步插入数据
+     * @param demo
+     * @return
+     */
+    void insertAsync(Demo demo);
 
     /**
      * 删除数据

@@ -29,7 +29,7 @@ public class DemoSpringBootTest {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                String body = HttpRequest.post("localhost:8080/good/reduceStock").body(jsonObject.toString()).execute().body();
+                String body = HttpRequest.post("localhost:8080/good/optimisticLocking").body(jsonObject.toString()).execute().body();
                 System.out.println(body);
             }).start();
         }
@@ -45,7 +45,7 @@ public class DemoSpringBootTest {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            String body = HttpRequest.post("localhost:8080/good/reduceStock").body(jsonObject.toString()).execute().body();
+            String body = HttpRequest.post("localhost:8080/good/optimisticLocking").body(jsonObject.toString()).execute().body();
             System.out.println(body);
         }
     }

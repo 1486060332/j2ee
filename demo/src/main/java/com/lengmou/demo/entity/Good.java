@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 @TableName("good")
 public class Good{
-    private static final String TABLE_NAME = "good:";
+    public static final String TABLE_NAME = "good:";
 
     @TableId(type = IdType.AUTO)
     private Integer id;
