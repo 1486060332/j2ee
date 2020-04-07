@@ -21,7 +21,7 @@ public class Demo {
 
     private String name;
 
-    private Integer deleted;
+    private String deleted;
 
     private Date createdAt;
 
